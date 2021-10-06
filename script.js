@@ -12,6 +12,7 @@ document.querySelector('.check-btn').addEventListener('click', function () {
   if (!guessNumber) {
     document.querySelector('.comment').textContent = 'Input a number below! ⬇';
   }
+
   //if input equals secret number
   else if (guessNumber === hiddenNumber) {
     document.querySelector('.comment').textContent =
@@ -24,10 +25,12 @@ document.querySelector('.check-btn').addEventListener('click', function () {
       document.querySelector('.high-score').textContent = chances;
     }
   }
-  //if input is higher than secret number
-  else if (guessNumber > hiddenNumber) {
+
+  //if input is wrong
+  else if (guessNumber !== hiddenNumber) {
     if (chances > 1) {
-      document.querySelector('.comment').textContent = 'Too high!';
+      document.querySelector('.comment').textContent =
+        guessNumber > hiddenNumber ? 'Too high!' : 'Too low!';
       chances -= 1;
       document.querySelector('.chances').textContent = chances;
     } else {
@@ -35,17 +38,18 @@ document.querySelector('.check-btn').addEventListener('click', function () {
       document.querySelector('.comment').textContent = 'You lost! 😔 ';
     }
   }
+
   //if input is lower than secret number
-  else if (guessNumber < hiddenNumber) {
-    if (chances > 1) {
-      document.querySelector('.comment').textContent = 'Too low!';
-      chances -= 1;
-      document.querySelector('.chances').textContent = chances;
-    } else {
-      document.querySelector('.chances').textContent = 0;
-      document.querySelector('.comment').textContent = 'You lost! 😔 ';
-    }
-  }
+  //   else if (guessNumber < hiddenNumber) {
+  //     if (chances > 1) {
+  //       document.querySelector('.comment').textContent = 'Too low!';
+  //       chances -= 1;
+  //       document.querySelector('.chances').textContent = chances;
+  //     } else {
+  //       document.querySelector('.chances').textContent = 0;
+  //       document.querySelector('.comment').textContent = 'You lost! 😔 ';
+  //     }
+  //   }
 });
 
 // new game function
