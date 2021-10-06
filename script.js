@@ -19,7 +19,7 @@ document.querySelector('.check-btn').addEventListener('click', function () {
   else if (guessNumber > hiddenNumber) {
     if (chances > 1) {
       document.querySelector('.comment').textContent = 'Too high!';
-      chances--;
+      chances -= 1;
       document.querySelector('.chances').textContent = chances;
     } else {
       document.querySelector('.chances').textContent = 0;
@@ -29,11 +29,21 @@ document.querySelector('.check-btn').addEventListener('click', function () {
   else if (guessNumber < hiddenNumber) {
     if (chances > 1) {
       document.querySelector('.comment').textContent = 'Too low!';
-      chances--;
+      chances -= 1;
       document.querySelector('.chances').textContent = chances;
     } else {
       document.querySelector('.chances').textContent = 0;
       document.querySelector('.comment').textContent = 'You lost! 😔 ';
     }
   }
+});
+
+document.querySelector('.new-game').addEventListener('click', function () {
+  const hiddenNumber = Math.trunc(Math.random() * 20 + 1);
+  let chances = 20;
+  document.querySelector('.hidden-number').textContent = '?';
+  document.querySelector('.chances').textContent = chances;
+  document.querySelector('.comment').textContent = 'Start guessing! ⬇';
+  document.querySelector('.guess-number').value = '';
+  document.querySelector('body').style.backgroundColor = '#000000';
 });
