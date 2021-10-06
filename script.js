@@ -1,7 +1,7 @@
 'use strict';
 
 let hiddenNumber = Math.trunc(Math.random() * 20 + 1);
-let chances = 20;
+let chances = 7;
 let highScore = 0;
 
 const displayMessage = function (message) {
@@ -57,7 +57,7 @@ document.querySelector('.check-btn').addEventListener('click', function () {
 // new game function
 document.querySelector('.new-game').addEventListener('click', function () {
   hiddenNumber = Math.trunc(Math.random() * 20 + 1);
-  chances = 20;
+  chances = 7;
   document.querySelector('.hidden-number').textContent = '?';
   document.querySelector('.chances').textContent = chances;
   displayMessage('Start guessing ⬇');
