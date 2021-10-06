@@ -4,19 +4,22 @@ let hiddenNumber = Math.trunc(Math.random() * 20 + 1);
 let chances = 20;
 let highScore = 0;
 
+const displayMessage = function (message) {
+  document.querySelector('.comment').textContent = message;
+};
+
 // conditions at check button
 document.querySelector('.check-btn').addEventListener('click', function () {
   const guessNumber = Number(document.querySelector('.guess-number').value);
 
   //if there is no input
   if (!guessNumber) {
-    document.querySelector('.comment').textContent = 'Input a number below! ⬇';
+    displayMessage('Input a number below! ⬇');
   }
 
   //if input equals secret number
   else if (guessNumber === hiddenNumber) {
-    document.querySelector('.comment').textContent =
-      "Congratulations! You've guessed the secret number!";
+    displayMessage("Congratulations! You've guessed the secret number!");
     document.querySelector('body').style.backgroundColor = '#60b347';
     document.querySelector('.hidden-number').textContent = hiddenNumber;
 
@@ -29,8 +32,7 @@ document.querySelector('.check-btn').addEventListener('click', function () {
   //if input is wrong
   else if (guessNumber !== hiddenNumber) {
     if (chances > 1) {
-      document.querySelector('.comment').textContent =
-        guessNumber > hiddenNumber ? 'Too high!' : 'Too low!';
+      displayMessage(guessNumber > hiddenNumber ? 'Too high!' : 'Too low!');
       chances -= 1;
       document.querySelector('.chances').textContent = chances;
     } else {
@@ -58,7 +60,7 @@ document.querySelector('.new-game').addEventListener('click', function () {
   chances = 20;
   document.querySelector('.hidden-number').textContent = '?';
   document.querySelector('.chances').textContent = chances;
-  document.querySelector('.comment').textContent = 'Start guessing! ⬇';
+  displayMessage('Start guessing ⬇');
   document.querySelector('.guess-number').value = '';
   document.querySelector('body').style.backgroundColor = '#000000';
 });
