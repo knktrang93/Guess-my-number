@@ -5,28 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400&family=Gemunu+Libre:wght@500&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400&family=Gemunu+Libre:wght@500&family=Orbitron:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <title>Guess My Number!</title>
   </head>
   <body>
-    <div class=position>
+    <div class="position">
       <head>
         <h1>Guess My Number</h1>
         <h2>(Between 1 and 20)</h2>
         <span class="hidden-number">?</span>
       </head>
       <main>
-          <p>Start guessing ⬇</p>
-          <form>
-              <input style="width:180px; height:50px; font-size:40px; text-align: center;" type="text" id="guess-number" name="guess-number" /></br>
-              <button class=check-btn>Check!</button>
-          </form>
-          <div class="info">
-              <span class="chance">Chance:</span><span class="highscore">Highscore:</span><button class="new-game">NEW GAME</button>
-          </div>
+        <p class="comment">Start guessing ⬇</p>
+        <input
+          style="
+            width: 180px;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+          "
+          type="number"
+          class="guess-number"
+        /><br />
+        <button class="check-btn">Check!</button>
+        <div class="info">
+          Chances:<span class="chances">20</span> Highscore:
+          <span class="highscore">20</span>
+          <button class="new-game">NEW GAME</button>
+        </div>
       </main>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
